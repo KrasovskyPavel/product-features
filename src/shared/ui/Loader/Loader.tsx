@@ -7,7 +7,7 @@ interface LoaderProps {
 
 export const Loader = ({ className }: LoaderProps) => {
   return (
-    <div className={classNames(cls.lds_spinner, {}, [className])}>
+    <div className={classNames(cls.spinner, {}, [className])}>
       <div></div>
       <div></div>
       <div></div>
