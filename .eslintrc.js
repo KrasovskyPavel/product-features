@@ -4,7 +4,12 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ["plugin:react/recommended", "airbnb", "plugin:i18next/recommended"],
+  extends: [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:i18next/recommended",
+    "plugin:react-hooks/recommended",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -13,7 +18,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "i18next"],
+  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
   rules: {
     "linebreak-style": 0,
     quotes: [0, "single", { avoidEscape: true }],
@@ -38,6 +43,12 @@ module.exports = {
     "react/self-closing-comp": "off",
     "react/jsx-curly-brace-presence": "off",
     "react/button-has-type": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "object-curly-newline": "off",
+    "comma-dangle": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
   },
   globals: {
     __IS_DEV__: true,
