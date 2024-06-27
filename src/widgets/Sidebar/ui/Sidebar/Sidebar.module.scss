@@ -16,6 +16,7 @@
 }
 
 .lang {
+  margin-left: 10px;
   margin-bottom: 10px;
 }
 
@@ -59,5 +60,9 @@
     opacity: 0;
     transform: 0.2s opacity;
     width: 0;
+  }
+
+  .lang {
+    margin-left: 0;
   }
 }
