@@ -50,6 +50,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "no-param-reassign": "off",
+    "implicit-arrow-linebreak": "warn",
     "react/jsx-one-expression-per-line": "off",
   },
   globals: {
