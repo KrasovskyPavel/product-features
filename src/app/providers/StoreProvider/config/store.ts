@@ -1,13 +1,18 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore, DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { loginReducer } from 'features/AuthByUsername/model/slice/LoginSlice';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
-export function createReduxStore(initialState?: StateSchema) {
+// eslint-disable-next-line max-len
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
+) {
   const rootReducer: ReducersMapObject<StateSchema> = {
-    counter: counterReducer, user: userReducer
+    ...asyncReducers,
+    counter: counterReducer,
+    user: userReducer
   };
 
   const reducerManager = createReducerManager(rootReducer);
