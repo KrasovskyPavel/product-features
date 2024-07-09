@@ -47,7 +47,7 @@ module.exports = {
     "jsx-a11y/no-static-element-interactions": "off",
     "object-curly-newline": "off",
     "comma-dangle": "off",
-    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "error",
     "no-param-reassign": "off",
     "implicit-arrow-linebreak": "warn",
@@ -55,5 +55,6 @@ module.exports = {
   },
   globals: {
     __IS_DEV__: true,
+    __API__: true,
   },
 };

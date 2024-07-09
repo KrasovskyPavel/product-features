@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User, UserSchema } from 'entities/User/types/user';
+import { User, UserSchema } from 'entities/User/model/types/user';
 import { USER_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
 
 const initialState: UserSchema = {
