@@ -3,7 +3,6 @@ import { User, UserSchema } from 'entities/User/model/types/user';
 import { USER_LOCALSTORAGE_KEY } from 'shared/constants/localstorage';
 
 const initialState: UserSchema = {
-  authData: null
 };
 
 export const userSlice = createSlice({

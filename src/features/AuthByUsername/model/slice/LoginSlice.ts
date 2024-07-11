@@ -5,7 +5,8 @@ import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 const initialState: LoginSchema = {
   username: '',
   password: '',
-  isLoading: false
+  isLoading: false,
+  error: undefined
 };
 
 export const loginSlice = createSlice({

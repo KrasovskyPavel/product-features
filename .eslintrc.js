@@ -52,6 +52,7 @@ module.exports = {
     "no-param-reassign": "off",
     "implicit-arrow-linebreak": "warn",
     "react/jsx-one-expression-per-line": "off",
+    "no-undef": "off",
   },
   globals: {
     __IS_DEV__: true,
