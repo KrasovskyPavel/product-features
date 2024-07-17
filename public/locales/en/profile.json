@@ -1,4 +1,12 @@
 {
+    "Профиль": "Profile",
     "Ваше имя": "Your name",
-    "Ваша фамилия": "Your surname"
+    "Ваша фамилия": "Your surname",
+    "Имя пользователя": "Username",
+    "Изменить аватар": "Change avatar",
+    "Редактировать": "Edit",
+    "Отменить": "Cancel",
+    "Принять": "Accept",
+    "Произошла ошибка при загрузке профиля": "An error occurred while loading the profile",
+    "Попробуйте обновить страницу": "Try to refresh the page"
 }
