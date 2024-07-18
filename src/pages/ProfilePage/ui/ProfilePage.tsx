@@ -1,9 +1,11 @@
+/* eslint-disable operator-linebreak */
 import {
   fetchProfileData,
   getProfileError,
   getProfileForm,
   getProfileLoading,
   getProfileReadonly,
+  getProfileValidateErrors,
   profileActions,
   ProfileCard,
   profileReducer,
@@ -15,6 +17,9 @@ import DynamicModuleLoader, {
 } from "shared/lib/components/dynamicModuleLoader/DynamicModuleLoader";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
+import { Text, TextTheme } from "shared/ui/Text/Text";
+import { ValidateProfileError } from "entities/Profile/model/types/profile";
+import { useTranslation } from "react-i18next";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 
 const reducers: ReducerList = {
@@ -22,11 +27,22 @@ const reducers: ReducerList = {
 };
 
 const ProfilePage = () => {
+  const { t } = useTranslation("profile");
   const dispatch = useDispatch();
   const formData = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileLoading);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorsTranslate = {
+    [ValidateProfileError.INCORRECT_USER_DATA]: t("Имя и фамилия обязательны"),
+    [ValidateProfileError.INCORRECT_USER_USERNAME]: t("Имя пользователя обязательно"),
+    [ValidateProfileError.INCORRECT_USER_CITY]: t(""),
+    [ValidateProfileError.INCORRECT_USER_AGE]: t(""),
+    [ValidateProfileError.NO_DATA]: t(""),
+    [ValidateProfileError.SERVER_ERROR]: t(""),
+  };
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -94,6 +110,10 @@ const ProfilePage = () => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <ProfilePageHeader />
+      {validateErrors?.length &&
+        validateErrors.map((err) => (
+          <Text theme={TextTheme.ERROR} text={err} key={validateErrorsTranslate[err]} />
+        ))}
       <ProfileCard
         onChangeFirstname={onChangeFirstname}
         onChangeLastname={onChangeLastname}
